@@ -1,0 +1,262 @@
+/* Design général */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #222222;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* En-tête */
+header {
+    background-color: #3a0196;
+    color: white;
+    padding: 20px 0;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Contenu */
+section {
+    padding: 40px 20px;
+}
+
+.profil {
+    border-radius: 50%;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 250px;
+    margin: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Pied de page */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* ... */
+}
+
+
+/* Fond personnalisé pour la page d'accueil */
+body {
+    background-image: url('images/background.jpg');
+    background-size: cover; /* L’image prend tout l’écran */
+    background-position: center; /* L’image est centrée */
+    background-repeat: no-repeat; /* L’image ne se répète pas */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white; /* Texte blanc pour bien voir */
+    text-align: center;
+}
+
+/* Effet d'ombre sur les textes */
+h1, h2, p {
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.button-container {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.button-container {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.nyc-server-section {
+  position: relative;
+  background-image: url('images/nyc-skyline.jpg'); /* Mets une photo NYC dans ce chemin */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin: 50px auto;
+  max-width: 900px;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+.nyc-server-section .overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.65); /* noir semi-transparent pour lisibilité */
+  z-index: 1;
+}
+
+.nyc-server-section .content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.nyc-server-section h2 {
+  font-size: 2.8em;
+  margin-bottom: 15px;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+
+.nyc-server-section p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.btn-discord {
+  background-color: #7289DA;
+  color: white;
+  padding: 14px 30px;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(114, 137, 218, 0.5);
+}
+
+.btn-discord:hover {
+  background-color: #5b6eae;
+  box-shadow: 0 6px 12px rgba(91, 110, 174, 0.7);
+}
+
+.music-player-overlay {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 10000;
+  user-select: none;
+  min-width: 260px;
+}
+
+.music-player-overlay .btn-icon {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.music-player-overlay .btn-icon:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.music-player-overlay input[type="range"] {
+  -webkit-appearance: none;
+  width: 120px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.music-player-overlay input[type="range"]:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.music-player-overlay input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-top: -5px; /* centrer le thumb verticalement */
+}
+
+.music-player-overlay input[type="range"]:hover::-webkit-slider-thumb {
+  background-color: #ddd;
+}
+
+.music-player-overlay input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.music-player-overlay input[type="range"]:hover::-moz-range-thumb {
+  background-color: #ddd;
+}
+
+
+
+
+
+

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MTZ #2K25</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/photo-profil.jpg">
+    <style>
+      /* Ajout CSS pour les boutons blancs du player */
+      .music-player-overlay {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 12px;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        z-index: 10000;
+        user-select: none;
+        min-width: 300px;
+      }
+
+      .music-player-overlay .controls button {
+        background: white;
+        border: 1px solid #ccc;
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 8px 14px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        user-select: none;
+      }
+
+      .music-player-overlay .controls button:hover {
+        background-color: #f0f0f0;
+        color: #333;
+      }
+
+      .music-player-overlay .controls input[type="range"] {
+        -webkit-appearance: none;
+        width: 120px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .music-player-overlay .controls input[type="range"]:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .music-player-overlay .controls input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        background: white;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.3s ease;
+        margin-top: -5px;
+      }
+
+      .music-player-overlay .controls input[type="range"]:hover::-webkit-slider-thumb {
+        background-color: #ddd;
+      }
+
+      .music-player-overlay .controls input[type="range"]::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        background: white;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .music-player-overlay .controls input[type="range"]:hover::-moz-range-thumb {
+        background-color: #ddd;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MTZ PROJECTS #2K25 !</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À propos</a>
+            <a href="gallery.html">Galerie</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    
+    <div class="button-container">
+      <a href="about.html" class="btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="Logo" class="btn-icon">
+        NYC STORIES !
+      </a>
+    </div>
+
+    <section>
+        <img src="images/photo-profil.jpg" alt="Ma photo" width="200">
+        <h2>MTZ</h2>
+        <p>MTZ PROJECTS !</p>
+    </section>
+
+    <section id="fivem-server" class="nyc-server-section">
+      <div class="overlay"></div>
+      <div class="content">
+        <h2>Bienvenue sur NYC Stories</h2>
+        <p>Rejoignez notre serveur FiveM pour une expérience immersive au cœur de New York. Une communauté active, des événements uniques et bien plus encore vous attendent !</p>
+        <a href="https://discord.gg/DY4MAst3cd" target="_blank" class="btn-discord">Rejoindre notre Discord</a>
+      </div>
+    </section>
+
+    <!-- Music Player Overlay -->
+<section id="music-player" class="music-player-overlay">
+  <audio id="audio" preload="metadata"></audio>
+  <div class="controls">
+    <button id="prevBtn" title="Piste précédente">
+      <img src="images/prev.png" alt="Prev" width="24" height="24">
+    </button>
+    <button id="playPauseBtn" title="Play/Pause">
+      <img src="images/play.png" alt="Play" width="24" height="24">
+    </button>
+    <button id="nextBtn" title="Piste suivante">
+      <img src="images/next.png" alt="Next" width="24" height="24">
+    </button>
+    <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="0.2" title="Volume">
+  </div>
+</section>
+
+
+    <footer>
+        <p>© #2K25 - MTZ</p>
+    </footer>
+
+    <script>
+      const audio = document.getElementById('audio');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const volumeControl = document.getElementById('volumeControl');
+
+      const playlist = [
+        'musique1.mp3',
+        'musique2.mp3',
+        'musique3.mp3'
+      ];
+      let currentTrack = 0;
+
+      // Charge la piste actuelle
+      function loadTrack(index) {
+        audio.src = playlist[index];
+        audio.load();
+      }
+
+      loadTrack(currentTrack);
+      audio.volume = 0.2; // volume de départ
+
+      playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play();
+          playPauseBtn.textContent = 'Pause';
+        } else {
+          audio.pause();
+          playPauseBtn.textContent = 'Play';
+        }
+      });
+
+      prevBtn.addEventListener('click', () => {
+        currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+        loadTrack(currentTrack);
+        audio.play();
+        playPauseBtn.textContent = 'Pause';
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentTrack = (currentTrack + 1) % playlist.length;
+        loadTrack(currentTrack);
+        audio.play();
+        playPauseBtn.textContent = 'Pause';
+      });
+
+      volumeControl.addEventListener('input', (e) => {
+        audio.volume = e.target.value;
+      });
+
+      // Mise à jour du bouton quand la musique se termine
+      audio.addEventListener('ended', () => {
+        nextBtn.click();
+      });
+    </script>
+</body>
+</html>
