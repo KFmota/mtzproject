@@ -4,17 +4,123 @@
     <meta charset="UTF-8">
     <title>Ma Galerie</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: 45px;
+            background: #222222; /* gris clair */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+        /* Overlay en haut */
+        .top-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(22, 22, 22, 0.05);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(214, 214, 214, 0.2);
+            z-index: 1000;
+        }
+        .top-overlay a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 15px;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s;
+            display: inline-block;
+        }
+        .top-overlay a:hover {
+            background: white;
+            color: #050505;
+        }
+        /* Conteneur bulles */
+        .bubbles-container {
+            max-width: 900px;
+            margin: 20px auto;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+        /* Bulles */
+        .bubble {
+            flex: 1;
+            padding: 25px 30px;
+            border-radius: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            color: white;
+            line-height: 1.5;
+            font-size: 1.1em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        /* Bulle 1 */
+        .bubble-1 {
+            background: rgba(66, 66, 66, 0.85); /* steelblue transparent */
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        /* Bulle 2 */
+        .bubble-2 {
+            background: rgba(100, 100, 100, 0.85); /* gris foncé transparent */
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+        /* Marges entre paragraphes dans bulles */
+        .bubble p {
+            margin-bottom: 15px;
+        }
+        .bubble p:last-child {
+            margin-bottom: 0;
+        }
+        /* Galerie */
+        .gallery {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px auto 40px;
+            max-width: 960px;
+        }
+        .gallery img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        /* Titre galerie */
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Ma Galerie</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="about.html">À propos</a>
-            <a href="gallery.html">Galerie</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+
+    <div class="top-overlay">
+        <a href="https://cfx.re/join" target="_blank" rel="noopener noreferrer">Rejoignez-nous sur cfx.re</a>
+    </div>
+
+    <section class="bubbles-container">
+        <div class="bubble bubble-1">
+            <p>Une courte présentation sera présente ici !</p>
+        </div>
+        <div class="bubble bubble-2">
+            <p>Le règlement sera publié ici !</p>
+            <p>Le lore sera expliqué ici !</p>
+        </div>
+    </section>
 
     <section>
         <h2>Mes photos préférées</h2>
@@ -25,8 +131,5 @@
         </div>
     </section>
 
-    <footer>
-        <p>© 2025 - Mon Site Personnel</p>
-    </footer>
 </body>
 </html>

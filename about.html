@@ -2,28 +2,54 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>À propos de moi</title>
+    <title>Accueil</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        section {
+            max-width: 600px;
+            margin: 40px auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        img.profil {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* rend la photo ronde */
+            object-fit: cover;
+            margin: 20px 0;
+            border: 3px solid #333;
+        }
+        h2 {
+            margin-bottom: 50px;
+            font-size: 3.1em;
+        }
+        h3 {
+            margin-bottom: 80px;
+            font-size: 1.5em;
+        }
+        p {
+            font-size: 1.9em;
+            color: #555;
+        }
+
+    </style>
 </head>
 <body>
-    <header>
-        <h1>À propos de moi</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="about.html">À propos</a>
-            <a href="gallery.html">Galerie</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
 
     <section>
-        <h2>Qui suis-je ?</h2>
-        <p>Je m'appelle [Ton Prénom] et je suis passionné(e) par [ta passion].</p>
-        <p>Je partage ici mes projets, mes photos et mes centres d’intérêt.</p>
+        <img src="images/photo-profil.jpg" alt="Ma photo" width="200">
+        <h2>MTZ</h2>
+        <p></p>
     </section>
 
-    <footer>
-        <p>© 2025 - Mon Site Personnel</p>
-    </footer>
+    <section id="fivem-server" class="nyc-server-section">
+      <div class="overlay"></div>
+      <div class="content">
+        <h2>Bienvenue sur NYC Stories</h2>
+        <p>Rejoignez notre serveur FiveM pour une expérience immersive au cœur de New York. Une communauté active, des événements uniques et bien plus encore vous attendent !</p>
+        <a href="https://discord.gg/DY4MAst3cd" target="_blank" class="btn-discord">Rejoindre notre Discord</a>
+      </div>
+    </section>   
+
 </body>
 </html>
